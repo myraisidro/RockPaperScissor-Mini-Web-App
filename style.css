@@ -1,0 +1,14 @@
+.round-btn {
+    /* background-color: #674949; */
+    border: 2px solid #dee2e6;
+    border-radius: 128px !important;
+}
+
+#alertMsg .alert{
+    max-width: 400px !important; 
+    padding-right: 20px !important;
+}
+
+div#bottomBtn {
+    padding-left: 15% !important;
+}
