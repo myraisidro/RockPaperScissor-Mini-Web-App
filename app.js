@@ -119,7 +119,7 @@ function Draw(){
         hide();
         hideHands();
         backMsg();
-    }, 3000);
+    }, 5000);
 }
 
 // WIN
@@ -134,7 +134,7 @@ function Win(){
         hide();
         hideHands();
         backMsg();
-    }, 3000);
+    }, 5000);
 }
 
 // LOOSE
@@ -150,7 +150,7 @@ function Loose(){
         hideHands();
         backMsg();
         
-    }, 3000);
+    }, 5000);
 }
 
 // GAME OVER
