@@ -89,19 +89,31 @@ function cGesture(choice){
 
 
 function appendMsg(){
-        // Replace text on strong tag
-        const strong = document.createTextNode('You made a pick!').textContent;
-        document.querySelector('.headsUp').innerHTML = strong;
 
-        // Replace text on takePick
-        const waitPick = document.createTextNode('Wait for the opponent').textContent;
-        document.querySelector('.pickMsg').style.fontSize = '40px';
-        document.querySelector('.pickMsg').innerHTML = waitPick;
+        //USE TEMPLATE STRING INSTEAD OF CHANGING TEXT NODES
+
+        // // Replace text on strong tag
+        // const strong = document.createTextNode('You made a pick!').textContent;
+        // document.querySelector('.headsUp').innerHTML = strong;
+
+        // // Replace text on takePick
+        // const waitPick = document.createTextNode('Wait for the opponent').textContent;
+        // document.querySelector('.pickMsg').style.fontSize = '40px';
+        // document.querySelector('.pickMsg').innerHTML = waitPick;
+
+        draw.innerHTML = `
+        <div class="alert alert-dismissible alert-light m-5" style="font-size: 50px;">
+        <p class="takePick">
+            <strong class="headsUp" style="font-size: 30px;">You made a pick!</strong><br> 
+            <span class="pickMsg" style="font-size: 30px;">Wait for the opponent</span> 
+        </p>
+    </div>`;
 }
 
+const draw = document.getElementById('alertMsg');
 function Draw(){
 // document.querySelector('.pickMsg').textContent = 'Draw';
-    const draw = document.getElementById('alertMsg');
+    
     draw.innerHTML = `
     <div class="alert alert-dismissible alert-primary  m-5">
         <p style="font-size: 50px;"> Oh snap, Its Draw! </p>
@@ -110,6 +122,15 @@ function Draw(){
         <button type="button" class="btn btn-info">Continue</button>
     </div>
     `;
+    setTimeout(() => {
+        hideDraw();
+    }, 3000);
+    
+}
+
+function hideDraw(){
+    draw.innerHTML = "";
+    console.log('hidden');
 }
 
 
@@ -125,9 +146,7 @@ function RockChoice() {
     if(playerChoice === computerChoice) { //Draw no score would be added
         cGesture(cRock);
         Draw();
-        setTimeout(() =>{
-            draw.innerHTML = '';
-        }, 2000);
+ 
     } 
 
     else if (playerChoice == 1 && computerChoice == 2){ //PLAYER LOOSE! Player: Rock && Computer: Paper
