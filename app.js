@@ -1,4 +1,4 @@
-// Declaring default values for scoreboard
+// Set Value
 let UserScore = 0,
     ComputerScore = 0,
     playerChoice = 0,
@@ -6,7 +6,7 @@ let UserScore = 0,
     computerChoice = 0,
     take = '';
 
-// Variables for document ID's
+// Element and Selectors
 const rock = document.getElementById('rock'),
     paper = document.getElementById('paper'),
     scissor = document.getElementById('scissor'),
@@ -17,11 +17,11 @@ const rock = document.getElementById('rock'),
     coin = document.getElementById('coins');
 
 
-// Event listeners uses to add an event to our buttons
-rock.addEventListener('click' , RockChoice); //function for rock
-paper.addEventListener('click' , paperChoice); //function for paper
-scissor.addEventListener('click' , scissorChoice); //function for paper
-document.addEventListener('DOMContentLoaded' , displayScoreboard);  //function to loadfrom local
+// Event listeners
+rock.addEventListener('click' , RockChoice); 
+paper.addEventListener('click' , paperChoice); 
+scissor.addEventListener('click' , scissorChoice); 
+document.addEventListener('DOMContentLoaded' , displayScoreboard);  
 
 
 // Display default values declared to scoreboard
@@ -29,7 +29,7 @@ userScore.textContent = UserScore;
 computerScore.textContent = ComputerScore;
 coin.textContent = startingCoins;
 
-// Set imgs to variable
+// Set Hand Images to variable
 const uRock = 'images/rock-left.png';
 const uPaper = 'images/paper-left.png';
 const uScissor = 'images/scissor-left.png';
@@ -87,6 +87,7 @@ function cGesture(choice){
     userPick.innerHTML = `<img src="${this.choice}" height="300px">`;
 }
 
+
 function appendMsg(){
         // Replace text on strong tag
         const strong = document.createTextNode('You made a pick!').textContent;
@@ -99,7 +100,16 @@ function appendMsg(){
 }
 
 function Draw(){
-document.querySelector('.pickMsg').textContent = 'Draw'
+// document.querySelector('.pickMsg').textContent = 'Draw';
+    const draw = document.getElementById('alertMsg');
+    draw.innerHTML = `
+    <div class="alert alert-dismissible alert-primary  m-5">
+        <p style="font-size: 50px;"> Oh snap, Its Draw! </p>
+        <p style="font-size: 20px;"> Current Score: <span class="badge badge-pill badge-light">10</span></p>
+        <button type="button" class="btn btn-outline-primary">Reset</button>
+        <button type="button" class="btn btn-info">Continue</button>
+    </div>
+    `;
 }
 
 
@@ -115,6 +125,9 @@ function RockChoice() {
     if(playerChoice === computerChoice) { //Draw no score would be added
         cGesture(cRock);
         Draw();
+        setTimeout(() =>{
+            draw.innerHTML = '';
+        }, 2000);
     } 
 
     else if (playerChoice == 1 && computerChoice == 2){ //PLAYER LOOSE! Player: Rock && Computer: Paper
