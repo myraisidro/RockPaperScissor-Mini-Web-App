@@ -4,185 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css" >
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+
+    
 </head>
 <body>
-    <!-- <nav class="navbar navbar-dark bg-primary mb-3">
-        <div class="container">
-            <a href="#" class="navbar-brand mx-auto">Rock Paper Scissor Game</a>
-        </div>
-    </nav> -->
-
-    <div class="container mt-4">
-        <div class="row">
-            <!-- USER SCORE -->
-                <div class="col-sm-6">
-                    <div class="list-group">
-                        <div class="list-group-item list-group-item-action flex-column align-items-start active">
-                            <div class="row" style="font-size: 25px;">
-                                <div class="col-sm text-left">
-                                        <span>YOUR SCORE </span>
-                                </div>
-                                <!-- USER SCORE -->
-                                <div class="col-sm text-right" style="font-size: 30px;">
-                                    <span class="badge badge-pill badge-success" id="user-score"> </span>
-                                </div>
-                            </div>
+    <div class="container mt-5 pt-5">
+            <div class="jumbotron">
+                    <h1 class="display-3 text-center">Rock Paper Scissor Shoot!</h1>
+                    
+                    <p class="lead text-center">
+                        <div class="container">
+                                <a href="main.html" type="button" class="btn btn-primary btn-lg btn-block">Play Now!</a>
                         </div>
-
-                        <!-- BADGES COUNT  -->
-                        <div class="list-group-item list-group-item-action flex-column align-items-start text-center " style="font-size: 20px;">
-                                <!-- Gem -->
-                                <span class="badge badge-pill badge-secondary">
-                                    <i class="text-warning fas fa-gem"></i> <span id="coins"> </span>
-                                </span>
-                                <!-- Win -->
-                                <span class="badge badge-pill badge-success">
-                                    Wins:<span id="u_winCount"> 0 </span>
-                                </span>
-                                <!-- Loose -->
-                                <span class="badge badge-pill badge-danger">
-                                    Looses:<span id="u_looseCount"> 0 </span>
-                                </span>
-                                <!-- Draw -->
-                                <span class="badge badge-pill badge-secondary">
-                                    Draws:<span id="u_drawCount"> 0 </span>
-                                </span>
-                            </div>
-                    </div>
-                </div>
-
-            <!-- COMPUTER SCORE -->
-                <div class="col-sm-6">
-                    <div class="list-group">
-                        <div class="list-group-item list-group-item-action flex-column align-items-start active">
-                            <div class="row" style="font-size: 25px;">
-                                <!-- COMP SCORE -->
-                                <div class="col-sm text-left" style="font-size: 30px;">
-                                    <span class="badge  badge-pill badge-danger" id="computer-score">  </span>
-                                </div>
-                                <div class="col-sm text-right">
-                                    <span>COMPUTER </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- BADGES COUNT  -->
-                        <div class="list-group-item list-group-item-action flex-column align-items-start text-center " style="font-size: 20px;">
                             
-                            <!-- Win -->
-                            <span class="badge badge-pill badge-success">
-                                Wins:<span id="c_winCount"> 0 </span>
-                            </span>
-                            <!-- Loose -->
-                            <span class="badge badge-pill badge-danger">
-                                Looses:<span id="c_looseCount"> 0 </span>
-                            </span>
-                            <!-- Draw -->
-                            <span class="badge badge-pill badge-secondary">
-                                Draws:<span id="c_drawCount"> 0 </span>
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-        </div>
-
-        <!-- Result -->
-        <div id="result" class="row mt-3">
-            <!-- USer Result -->
-            <div class="col-sm-3 float-left userPick">
-
-            </div>
-            <!-- <div class="col-sm-3 float-left"> -->
-                <!-- <img src="images/paper-left.png" height="300px"> -->
-            <!-- </div> -->
-
-            <div id="alertMsg" class="col-sm-6 text-center pl-5 mt-4" >
-                <!-- Winner -->
-                <!-- <div class="alert alert-dismissible alert-success  m-5">
-                    <p style="font-size: 50px;"> Yehey! You won! </p>
-                    <p style="font-size: 20px;"> Current Score: <span class="badge badge-pill badge-light">10</span></p>
-                    <button type="button" class="btn btn-outline-success">Reset</button>
-                    <button type="button" class="btn btn-info">Continue</button>
-                </div>  -->
-
-                <!-- Loose -->
-                <!-- <div class="alert alert-dismissible alert-danger  m-5">
-                    <p style="font-size: 50px;"> Sorry, You lost! </p>
-                    <p style="font-size: 20px;"> Current Score: <span class="badge badge-pill badge-light">10</span></p>
-                    <button type="button" class="btn btn-outline-danger">Reset</button>
-                    <button type="button" class="btn btn-info">Continue</button>
-                </div>  -->
-
-                <!-- Draw -->
-                <!-- <div class="alert alert-dismissible alert-primary  m-5">
-                    <p style="font-size: 50px;"> Oh snap, Its Draw! </p>
-                    <p style="font-size: 20px;"> Current Score: <span class="badge badge-pill badge-light">10</span></p>
-                    <button type="button" class="btn btn-outline-primary">Reset</button>
-                    <button type="button" class="btn btn-info">Continue</button>
-                </div>  -->
-
-                <!-- GAME OVER -->
-                <!-- <div class="alert alert-dismissible alert-danger  m-5">
-                    <p style="font-size: 50px;"> GAME OVER! </p>
-                    <p style="font-size: 20px;"> Score: <span class="badge badge-pill badge-light">10</span></p>
-                    <button type="button" class="btn btn-danger">Play Again</button>
-                </div>  -->
-
-                <!-- Take your pick -->
-                <div class="alert alert-dismissible alert-light m-5" style="font-size: 50px;">
-                    <p class="takePick">
-                        <strong class="strong" style="font-size: 30px;">Heads up!</strong><br> 
-                        <span class="pickMsg">Take your pick!</span> 
                     </p>
-                </div>
             </div>
-
-            <!-- Computer Result -->
-            <div class="col-sm-3 float-right compPick">
-                <!-- <img src="images/paper-right.png" height="300px"> -->
-            </div>
-        </div>
-
-        <!-- ROCK PAPER SCISSOR BUTTONS -->
-        <div class="fixed-bottom">
-            <div class="container">
-            <div class="row mb-3 ml-5 mr-5">
-                <div id="bottomBtn" class="offset-sm-2 col-sm-8 offset-sm-2 mx-auto">
-                    <button id="rock" type="button" class="btn btn-primary round-btn">
-                        <img src="images/rock.png"  style="height: 90px;">
-                        <p>BATO</p>
-                    </button>
-
-                <!-- </div> -->
-                <!-- <div class="col-sm mx-auto"> -->
-                    <button id="paper" type="button" class="btn btn-primary round-btn">
-                        <img src="images/paper.png"  style="height: 90px;">
-                        <p>PAPEL</p>
-                    </button>
-                <!-- </div> -->
-                <!-- <div class="col-sm mx-auto"> -->
-                    <button id="scissor" type="button" class="btn btn-primary round-btn">
-                        <img src="images/scissor.png"  style="height: 90px;">
-                        <p>GUNTING</p>
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div>
-        
     </div>
-        
-    
-    <!-- <footer class="mt-5 p3 text-center bg-light">MMRNJ &copy;</footer> -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="app.js"></script>
+                
+                <script src="app.js"></script> 
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
