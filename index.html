@@ -4,29 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
-
-    
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissor Shoot</title>
 </head>
+<style>
+    body{
+        background-image: url("images/bg1.jpg");
+        /* background-repeat: no-repeat;
+        background-size: 90% 90%; */
+    }
+</style>
 <body>
-    <div class="container mt-5 pt-5">
-            <div class="jumbotron">
-                    <h1 class="display-3 text-center">Rock Paper Scissor Shoot!</h1>
-                    
-                    <p class="lead text-center">
-                        <div class="container">
-                                <a href="main.html" type="button" class="btn btn-primary btn-lg btn-block">Play Now!</a>
-                        </div>
-                            
-                    </p>
-            </div>
+    <div class="container" style="padding:120px;">
+        <div class="jumbotron bg-light pb-2">
+            <h1 class="display-3">Rock Paper Scissor Shoot!</h1>
+            <p class="lead">Rock–paper–scissors is a hand game usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are "rock", "paper", and "scissors".</p>
+            <hr class="my-4">
+            <!-- <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="inputLarge">Let us know you!</label>
+                <input id="name" class="form-control form-control-lg text-center" type="text" placeholder="Enter your name .." id="inputLarge">
+            </div> -->
+            <p class="lead">
+                <a href="main.html" id="play" class="btn btn-primary btn-lg">PLAY NOW!</a>
+                <!-- <a href="main.html"  class="btn btn-outline-primary btn-lg">PLAY UNKNOWN</a> -->
+            </p>
+            <p class="text-center"><small> MYRA - JAY - RUTH - MAE - NIX</small></p>
+        </div>
+        
     </div>
+    
 
-                
-                <script src="app.js"></script> 
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
