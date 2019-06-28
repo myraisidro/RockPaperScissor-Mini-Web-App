@@ -28,17 +28,17 @@ coin.textContent = startingCoins;
 
 // Create Local Storage
 function createLocalStorage(){ 
-    scoreBoard = {
+    let scoreBoard = {
         UserScore : UserScore,
         ComputerScore : ComputerScore,
         startingCoins : startingCoins
             }
     let Game;
-        if(sessionStorage.getItem('Games') === null){
+        if(localStorage.getItem('Games') === null){
         Game = [];
     
     } else {
-        Game = JSON.parse(sessionStorage.getItem('Games'));
+        Game = JSON.parse(localStorage.getItem('Games'));
     } 
     
     Game.push(scoreBoard);
@@ -48,12 +48,13 @@ function createLocalStorage(){
 // Get Score from local storage
 function displayScoreboard(){
     let game;
-    if(localStorage.getItem('Games') === null){
-        game = [];
+    // // createLocalStorage();
+    // if(localStorage.getItem('Games') === null){
+    //     game = [];
 
-    } else {
+    // } else {
         game = JSON.parse(localStorage.getItem('Games'));
-    } 
+    // } 
     game.forEach(function(games){
         computerScore.textContent = games.ComputerScore;
         userScore.textContent = games.UserScore;
@@ -91,14 +92,12 @@ function backMsg(){
         <span class="pickMsg" style="font-size: 50px;">Take another pick!</span> 
     </p>
     </div>`;
-    
 }
 
 // HIDE HANDS
 function hideHands(){
     userPick.innerHTML = '';
     compPick.innerHTML = '';
-    result.innerHTML = '';
 }
 
 // HIDE ALERTS
@@ -119,7 +118,7 @@ function Draw(){
         hide();
         hideHands();
         backMsg();
-    }, 5000);
+    }, 2000);
 }
 
 // WIN
@@ -134,7 +133,7 @@ function Win(){
         hide();
         hideHands();
         backMsg();
-    }, 5000);
+    }, 2000);
 }
 
 // LOOSE
@@ -148,27 +147,28 @@ function Loose(){
     setTimeout(() => {
         hide();
         hideHands();
-        backMsg();
-        
-    }, 5000);
+        backMsg(); 
+    }, 2000);
 }
 
 // GAME OVER
 function gameOver(){
+    hideHands();
     result.innerHTML = `
     <div class="alert alert-dismissible alert-danger m-3">
         <p style="font-size: 50px;"> GAME OVER! </p>
-        <p style="font-size: 60px;"> 
+        <p style="font-size: 40px;"> 
             <span class="badge badge-pill badge-light">${UserScore}</span> : 
             <span class="badge badge-pill badge-light">${ComputerScore}</span>
         </p>
-        <button class="resetBtn btn btn-info btn-lg">Play Again</button>
-        <button href="main.html" class="quit btn btn-outline-danger btn-lg">Quit</button>
+        <button type="button" class="resetBtn btn btn-success">Reset</button>
+        <a href="index.html" class="quit btn btn-danger">QUIT</a>
     </div>
     `;
     setTimeout(() => {
-        hideHands();
-    }, 1000);
+    window.location.reload();
+    localStorage.clear();
+    }, 3000);
 }
 
 // RESET
@@ -189,6 +189,7 @@ function resValue(){
     coin.textContent = startingCoins;
 }
 
+// ROCK = 1, PAPER = 2, SCISSOR = 3
 // FUNCTION FOR ROCK = 1 ; 
 function RockChoice() {
     playerChoice = 1; 
@@ -219,10 +220,6 @@ function RockChoice() {
 
     if (startingCoins === 0){
         gameOver();
-        UserScore = 0; //declare the value to 0 (reset)
-        ComputerScore = 0; //declare value to 0 (reset)
-        userScore.textContent = UserScore;  
-        computerScore.textContent = ComputerScore;
     }
 
     createLocalStorage();
@@ -259,10 +256,6 @@ function paperChoice(){
 
     if (startingCoins === 0){
         gameOver();
-        UserScore = 0;
-        ComputerScore = 0;
-        userScore.textContent = UserScore;
-        computerScore.textContent = ComputerScore;
     }
 
     createLocalStorage();
@@ -282,20 +275,20 @@ function scissorChoice(){
         cGesture(cScissor);
         Draw();
     }
-    // SCISSOR : ROCK
+    // SCISSOR : ROCK // loose
      else if (playerChoice == 3 && computerChoice == 1) {
         cGesture(cRock);
         Loose();
-        UserScore++
-        startingCoins++
+        ComputerScore++;
+        startingCoins--;
         
     } 
-    // SCISSOR : PAPER
+    // SCISSOR : PAPER  //win
     else {
         cGesture(cScissor);
         Win();
-        ComputerScore++;
-        startingCoins--
+        UserScore++;
+        startingCoins++;
         
     }
     
@@ -303,10 +296,6 @@ function scissorChoice(){
 
     if (startingCoins === 0){
         gameOver();
-        UserScore = 0;
-        ComputerScore = 0;
-        userScore.textContent = UserScore;
-        computerScore.textContent = ComputerScore;
     }
 
     createLocalStorage();
