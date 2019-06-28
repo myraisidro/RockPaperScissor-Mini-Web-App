@@ -48,13 +48,13 @@ function createLocalStorage(){
 // Get Score from local storage
 function displayScoreboard(){
     let game;
-    // // createLocalStorage();
-    // if(localStorage.getItem('Games') === null){
-    //     game = [];
+    // createLocalStorage();
+    if(localStorage.getItem('Games') === null){
+        game = [];
 
-    // } else {
+    } else {
         game = JSON.parse(localStorage.getItem('Games'));
-    // } 
+    } 
     game.forEach(function(games){
         computerScore.textContent = games.ComputerScore;
         userScore.textContent = games.UserScore;
