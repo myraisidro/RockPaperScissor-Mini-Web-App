@@ -1,1 +1,1 @@
-<h1> Play rock paper scissor here: <button>PLAY NOW!</button></h1>
+<h1> Play rock paper scissor here: <a href="webly.netlify.com"> PLAY </a></h1>
